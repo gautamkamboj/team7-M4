@@ -36,3 +36,43 @@ To install the extension, follow these steps:
 - HTML
 - CSS
 
+## Files Overview
+# background.js:
+
+This file contains the background script for the Chrome extension.
+It listens for updates to browser tabs and detects when a tab navigates to a YouTube video page.
+Upon detecting a YouTube video page, it sends a message to the content script to initialize the bookmarking functionality.
+
+# contentScript.js:
+
+The content script injected into YouTube video pages.
+Responsible for adding a bookmark button to the YouTube video player controls.
+Handles bookmarking events such as adding new bookmarks and retrieving existing bookmarks from Chrome storage.
+Communicates with the background script and popup script using message passing.
+
+# popup.js:
+
+Manages the behavior of the popup window that appears when the extension icon is clicked.
+Handles user interactions within the popup, such as playing bookmarks and deleting bookmarks.
+Communicates with the content script and background script to perform bookmark-related actions.
+
+# utils.js:
+
+Contains utility functions used across different parts of the extension.
+Provides a function to retrieve the URL of the currently active tab.
+
+# assets/bookmark.png:
+
+Image asset used for the bookmark button displayed on the YouTube video player controls.
+
+# manifest.json:
+
+Configuration file that provides metadata about the extension.
+Specifies the background scripts, content scripts, permissions, and other details required by the extension.
+Defines the extension's name, version, description, icons, and other properties.
+
+## Additional Information:
+# Chrome Extension APIs:
+
+The project utilizes various Chrome Extension APIs, such as chrome.tabs, chrome.storage, and chrome.runtime, to interact with the browser environment.
+These APIs enable communication between different components of the extension and provide access to browser functionality.
